@@ -251,5 +251,20 @@ describe('Egervary related tests', function () {
             E.stepOne();
             expect(E.matchedM).toEqual(expected);
         });
+        it('Egervary stepOne without input graph - check return value of stepOne', function () {
+            var expected = 'READY';
+            var E = new Egervary();
+            E.stepZero();
+            expect(E.stepOne()).toEqual(expected);
+        });
+        it('Egervary stepOne with input graph testset 1 and pair creation - check return value of stepOne', function () {
+            var expected = 'READY';
+            var G = new Graph([1,2],[3,4], [[1,1],[1,0]]);
+            var E = new Egervary(G);
+            E.stepZero();
+            E.createPair(0,0);
+            E.createPair(1,1);
+            expect(E.stepOne()).toEqual(expected);
+        });
     });
 });

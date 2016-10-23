@@ -146,7 +146,11 @@ function Egervary (graph) {
     /*
      * stepOne function
      * it makes the 1. step.
+     * first chech pairs with isMatchedMFull function. if full - we are ready.
      * */
     this.stepOne = function () {
+        if (this.isMatchedMFull()) {
+            return 'READY';
+        }
     };
 }
